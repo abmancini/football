@@ -256,17 +256,20 @@ const float FORMATION_Y_SCALE = -2.36f;
 struct FormationEntry {
   FormationEntry() { DO_VALIDATION;}
   // Constructor accepts environment coordinates.
-  FormationEntry(float x, float y, e_PlayerRole role, bool lazy,
+  FormationEntry(float x, float y,  e_PlayerRole role, std::string name, bool lazy,
                  bool controllable)
       : position(x, y * FORMATION_Y_SCALE, 0),
         start_position(x, y * FORMATION_Y_SCALE, 0),
         role(role),
+        name(name),
         lazy(lazy),
         controllable(controllable) {
-    DO_VALIDATION;
+       printf("== player name: %s\n", name.c_str());
+      DO_VALIDATION;
   }
   bool operator == (const FormationEntry& f) const {
     return role == f.role &&
+        name == f.name &&
         lazy == f.lazy &&
         position == f.position &&
         controllable == f.controllable;
@@ -289,6 +292,7 @@ struct FormationEntry {
   bool lazy = false; // Computer doesn't perform any actions for lazy player.
   // Can be controlled by the player?
   bool controllable = true;
+  std::string name = "";
 };
 
 struct PlayerImage {

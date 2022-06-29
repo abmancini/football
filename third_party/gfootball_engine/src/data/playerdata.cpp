@@ -52,8 +52,11 @@ PlayerStat PlayerStatFromString(const std::string& name) {
   return player_stat_max;
 }
 
-PlayerData::PlayerData(int playerDatabaseID, bool left_team) {
+PlayerData::PlayerData(int playerDatabaseID, bool left_team, const FormationEntry *formationEntry) {
   DO_VALIDATION;
+
+
+  printf("creating player data #%d for %s team (%s FormationEntry)\n",playerDatabaseID, left_team ? "left" : "right", formationEntry != NULL ? "with" : "whithout");
 
   std::string profileString;
   float baseStat = 0.0f;
@@ -503,6 +506,16 @@ PlayerData::PlayerData(int playerDatabaseID, bool left_team) {
     stats.Set(PlayerStatFromString((*iter).first), value);
     iter++;
   }
+
+  //override player name
+  if(formationEntry != NULL && !formationEntry->name.empty()) {
+      printf("overriding player name %s %s is now %s\n",firstName.c_str(), lastName.c_str(), formationEntry->name.c_str());
+      firstName = formationEntry->name;
+      lastName = formationEntry->name;
+  } else {
+      printf("NOT overriding player name %s %s\n",firstName.c_str(), lastName.c_str());
+  }
+
   UpdateValues();
 }
 

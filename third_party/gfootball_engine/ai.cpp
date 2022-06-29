@@ -207,8 +207,9 @@ BOOST_PYTHON_MODULE(_gameplayfootball) {
       vector_indexing_suite<std::vector<FormationEntry> >());
 
   class_<FormationEntry>("FormationEntry",
-                         init<float, float, e_PlayerRole, bool, bool>())
+                         init<float, float, e_PlayerRole,  std::string ,bool, bool>())
       .def_readonly("role", &FormationEntry::role)
+      .def_readonly("role", &FormationEntry::name)
       .add_property("position", &FormationEntry::position_env)
       .def_readwrite("lazy", &FormationEntry::lazy)
       .def_readwrite("controllable", &FormationEntry::controllable);

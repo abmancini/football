@@ -96,7 +96,7 @@ class Scenario(object):
   def SetTeam(self, team):
     self._active_team = team
 
-  def AddPlayer(self, x, y, role, lazy=False, controllable=True):
+  def AddPlayer(self, x, y, role, name="", lazy=False, controllable=True):
     """Build player for the current scenario.
 
     Args:
@@ -106,7 +106,7 @@ class Scenario(object):
       lazy: Computer doesn't perform any automatic actions for lazy player.
       controllable: Whether player can be controlled.
     """
-    player = Player(x, y, role, lazy, controllable)
+    player = Player(x, y, role, name, lazy, controllable)
     if self._active_team == Team.e_Left:
       self._scenario_cfg.left_team.append(player)
     else:

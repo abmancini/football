@@ -30,8 +30,8 @@ def build_scenario(builder):
   builder.SetBallPosition(0.77, 0.0)
 
   builder.SetTeam(Team.e_Left)
-  builder.AddPlayer(-1.0, 0.0, e_PlayerRole_GK)
-  builder.AddPlayer(0.75, 0.0, e_PlayerRole_CB)
+  builder.AddPlayer(0.0, 0.0, e_PlayerRole_GK, name="Ernesto Pievveloce")
+  builder.AddPlayer(0.75, 0.0, e_PlayerRole_CB, name="Samuele Goal")
 
   builder.SetTeam(Team.e_Right)
-  builder.AddPlayer(1.0, 0.0, e_PlayerRole_GK)
+  builder.AddPlayer(1.0, 0.0, e_PlayerRole_GK, name="Sauro Tiradritto")

@@ -48,7 +48,7 @@ class PlayerProperties {
 class PlayerData {
 
   public:
-    PlayerData(int playerDatabaseID, bool left_team);
+    PlayerData(int playerDatabaseID, bool left_team, const FormationEntry *formationEntry);
     PlayerData();
     virtual ~PlayerData();
     std::string GetLastName() const { return lastName; }

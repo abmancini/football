@@ -274,17 +274,17 @@ TeamData::TeamData(int teamDatabaseID, const std::vector<FormationEntry> &f) {
 
   tree = loader.Load(factoryTacticsString);
   // load players
-  playerData.push_back(new PlayerData(398, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(11, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(254, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(320, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(103, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(188, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(74, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(332, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(290, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(391, teamDatabaseID == 3));
-  playerData.push_back(new PlayerData(264, teamDatabaseID == 3));
+  playerData.push_back(new PlayerData(398, teamDatabaseID == 3, &f[0]));
+  playerData.push_back(new PlayerData(11,  teamDatabaseID == 3, f.size() > 1 ? &f[1] : NULL));
+  playerData.push_back(new PlayerData(254, teamDatabaseID == 3, f.size() > 2 ? &f[2] : NULL));
+  playerData.push_back(new PlayerData(320, teamDatabaseID == 3, f.size() > 3 ? &f[3] : NULL));
+  playerData.push_back(new PlayerData(103, teamDatabaseID == 3, f.size() > 4 ? &f[4] : NULL));
+  playerData.push_back(new PlayerData(188, teamDatabaseID == 3, f.size() > 5 ? &f[5] : NULL));
+  playerData.push_back(new PlayerData(74,  teamDatabaseID == 3, f.size() > 6 ? &f[6] : NULL));
+  playerData.push_back(new PlayerData(332, teamDatabaseID == 3, f.size() > 7 ? &f[7] : NULL));
+  playerData.push_back(new PlayerData(290, teamDatabaseID == 3, f.size() > 8 ? &f[8] : NULL));
+  playerData.push_back(new PlayerData(391, teamDatabaseID == 3, f.size() > 9 ? &f[9] : NULL));
+  playerData.push_back(new PlayerData(264, teamDatabaseID == 3, f.size() > 10 ? &f[10] : NULL));
   playerData.resize(player_count);
 }
 

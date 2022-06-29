@@ -36,6 +36,12 @@ class FootballEnv(gym.Env):
   """Allows multiple players to play in the same environment."""
 
   def __init__(self, config):
+
+    from pprint import pprint
+    print("=================")
+    pprint(vars(config))
+    print("=================")
+
     self._config = config
     player_config = {'index': 0}
     # There can be at most one agent at a time. We need to remember its
